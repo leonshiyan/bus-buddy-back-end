@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      MyStop.belongsTo(models.Profile, { foreignKey : 'profileId' })
     }
   }
   MyStop.init({
