@@ -13,7 +13,8 @@ const create = async(req,res) => {
 
 const index = async (req, res) => {
   try {
-    const stops = await MyStop.findAll()
+    const profileId = req.user.id 
+    const stops = await MyStop.findAll({ where: { profileId } }) 
     res.status(200).json(stops)
   } catch (error) {
     res.status(500).json(error)
@@ -22,7 +23,14 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
   try {
-    const stop = await MyStop.findByPk(req.params.id)
+    const profileId = req.user.id 
+    // Only retrieve stop with matching ID and userId
+    const stop = await MyStop.findOne({ where: { id: req.params.id, profileId } }) 
+    // No such data associate with this user
+    if (!stop) {
+      res.status(404).json({ message: 'Stop not found' })
+      return
+    }
     res.status(200).json(stop)
   } catch (error) {
     res.status(500).json(error)
