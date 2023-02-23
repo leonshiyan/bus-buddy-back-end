@@ -3,17 +3,22 @@ const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
 const formData = require('express-form-data')
-
+// import routers
 const profilesRouter = require('./routes/profiles.js')
 const authRouter = require('./routes/auth.js')
 
+const stopsRouter = require('./routes/stops.js')
+// create the express app
 const app = express()
-
+// basic middleware
 app.use(cors())
 app.use(logger('dev'))
 app.use(express.json())
 app.use(formData.parse())
 
+// mount imported routes
+
+app.use('/api/stops', stopsRouter)
 app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
 
