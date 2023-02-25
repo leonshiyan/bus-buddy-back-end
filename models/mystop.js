@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   MyStop.init({
     stopNo: DataTypes.INTEGER,
+    title: DataTypes.STRING,
     profileId: {
       type: DataTypes.INTEGER,
       allowNull: false,
