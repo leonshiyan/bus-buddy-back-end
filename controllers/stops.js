@@ -1,4 +1,4 @@
-const { MyStop, Route } = require('../models')
+const { MyStop } = require('../models')
 
 const create = async(req,res) => {
 

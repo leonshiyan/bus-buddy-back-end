@@ -6,8 +6,9 @@ const formData = require('express-form-data')
 // import routers
 const profilesRouter = require('./routes/profiles.js')
 const authRouter = require('./routes/auth.js')
-
 const stopsRouter = require('./routes/stops.js')
+const keysRouter = require('./routes/keys.js')
+
 // create the express app
 const app = express()
 // basic middleware
@@ -21,6 +22,7 @@ app.use(formData.parse())
 app.use('/api/stops', stopsRouter)
 app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
+app.use('/api/keys',keysRouter)
 
 app.use(function (req, res, next) {
   res.status(404).json({ err: 'Not found' })
