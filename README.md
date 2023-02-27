@@ -1,1 +1,1 @@
-## [Checkout BusBuddy frontend repo](https://github.com/leonshiyan/bus-buddy-front-end)
+## [Checkout BusBuddy Front-End repo](https://github.com/leonshiyan/bus-buddy-front-end)
